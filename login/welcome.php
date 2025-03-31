@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-<form action="welcome.php" method="post">
-    <table class="table" class="table-dark" class="mt-3 mb-3" align="center">
-    <tr>
-    <th colspan="2"><h2 align="center">Login</h2></th>
-    </tr>
-    <tr>
-    <td>Username:</td>
-    <td><input type="text" name="uname"></td>
-    </tr>
-    <tr>
-    <td>Password:</td>
-    <td><input type="password" name="pwd"></td>
-    </tr>
-    <tr>
-    <td align="right" colspan="2"><input type="submit" name="login" value="login"></td>
-    </tr>
-</body>
+<?php
+session_start();
+include 'header.php';
+$uname='admin';
+$pwd='yname';
+echo"<div class='container mt-5 login-container login-container-hover '>" ;
+if (isset($_SESSION['uname']) and (!empty($_SESSION['uname']))) {
+    echo "<h1> Welcome...Game on </h1>" . $_SESSION['uname']."<br>";
+    echo "<a href='product.php'>Product</a><br>";
+    echo "<br><a href='logout.php'><input type='button' class='btn-primary' value='logout' name='logout'></a>";
+} else {
+    if ($_POST['uname'] == $uname && $_POST['pwd'] == $pwd) {
+        $_SESSION['uname'] = $uname;
+        echo "<script>location.href='welcome.php'</script>";
+    } else {
+        echo "<script>alert('username or password incorrect!')</script>";
+        echo "<script>location.href='login.php'</script>";
+    }
+} echo"</div>"
+?>
