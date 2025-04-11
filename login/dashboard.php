@@ -7,8 +7,8 @@ $pwd='yname';
 echo"<div class='container w-container' >" ;
 
 if (!isset($_SESSION["user"])){
-    if (!isset($_COOKIE['stay'])){
-        $_SESSION['user']=$_COOKIE['stay'];
+    if (isset($_COOKIE['stay'])){
+        $_SESSION['uname']=$_COOKIE['stay'];
     }
 }
 if (isset($_SESSION['uname']) and (!empty($_SESSION['uname']))) {  //user is connected
@@ -16,10 +16,12 @@ if (isset($_SESSION['uname']) and (!empty($_SESSION['uname']))) {  //user is con
     //echo "<script>location.href='gamestart.php'</script><br>"; js is executed first so it interrupts the rest of PHP code(executed on server but user wont see it)
     // inspecter application cookies (dev mode)
     //if theres no session if isset of cookie then start session
-    //rename this page to dashboard
+
     if (isset($_POST['resterconnectee'])) {
-        setcookie('resterconnectée','stay',time());
+        setcookie('stay', $uname,time()+3600*24*15,'/');  //include '/' to make the cookie available everywhere on the website
     } 
+    //If the user has no active session, but had previously checked “stay connected”,
+    //  and a cookie named stay exists, the session is recreated from the cooki
     echo"<div style='position: absolute; bottom: 320;'>
     <form class='form-group' action='gamestart.php' method='GET'>
         <button type='submit' value='GAME START' class='btn-primary'>GAME START</button>

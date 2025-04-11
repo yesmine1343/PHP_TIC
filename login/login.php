@@ -80,6 +80,10 @@
                     <input class="btn btn-primary w-100" type="submit" name="login" value="Login">
                 </td>
             </tr>
+            <tr>
+                <td colspan="2"><input type="checkbox" name="resterconnectee" id="resterconnectee">
+                <label for="resterconnectee">Stay connected for 15 days</label></td>
+            </tr>
         </table>
     </form>
 </div>
