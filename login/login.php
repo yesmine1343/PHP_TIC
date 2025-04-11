@@ -53,11 +53,18 @@
 </head>
 
 <body>
+    <!-- dashboard.php is profile page redirected to after verification.php from login.php
+    --error=x en login affiche error en verif.php 
+    --verif avec session en tttes les pages 
+    --si user connecte au moins une fois creer cookie pour 15jrs et verifier a chaque login si elle existe
+    --creer checkbox input type checkbox pour rester connectée / label for='id' rester connectee ^pour x jrs
+    -->
 
 <div class="container-fluid mt-3 mb-3 login-container">
     <form action="welcome.php" method="post">
         <table class="table table-dark">
             <tr>
+                <?php  if (!isset($_COOKIE['user']))    //if cookie not remembered(user 1st login prob) ?>
                 <th colspan="2"><h2 class="text-center">Login</h2></th>
             </tr>
             <tr>
