@@ -61,7 +61,7 @@
     -->
 
 <div class="container-fluid mt-3 mb-3 login-container">
-    <form action="welcome.php" method="post">
+    <form action="dashboard.php" method="post">
         <table class="table table-dark">
             <tr>
                 <?php  if (!isset($_COOKIE['user']))    //if cookie not remembered(user 1st login prob) ?>
