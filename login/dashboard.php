@@ -34,7 +34,7 @@ echo"</div>";
     echo"<div class='container ' >" ;
     if ($_POST['uname'] == $uname && $_POST['pwd'] == $pwd) { //if uname entered by user matches our static uname ($_POST) 
         $_SESSION['uname'] = $uname;   //then save uname in global tab
-        echo "<script>location.href='welcome.php'</script>";//redirection 
+        echo "<script>location.href='dashboard.php'</script>";//redirection 
     } else {
         echo "<script>alert('username or password incorrect!')</script>"; //like js
         echo "<script>location.href='login.php'</script>";//redirection
